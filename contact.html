@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — FGPS</title>
+    <meta name="description" content="Get in touch with FGPS for software demos, service enquiries, licensing, and support.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="preview-banner">
+        <div class="preview-banner-content">
+            <span class="preview-banner-text">
+                <span class="preview-dot"></span>
+                This is a complimentary preview redesign of fgps.com — Built by <strong>ReavesHQ</strong>
+            </span>
+            <a href="claim.html" class="preview-banner-cta">Claim This Site →</a>
+        </div>
+    </div>
+
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="logo-mark">FGPS</div>
+                <span class="logo-tagline">Est. 2000</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#solutions">Solutions</a></li>
+                <li><a href="products.html">Software</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="index.html#cloud">SeisCloudNAV</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="nav-cta" style="background:var(--accent-400)">Get in Touch</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <span class="section-label">Contact</span>
+            <h1>Let's Talk Navigation</h1>
+            <p>Whether you need a demo, pricing, technical support, or just want to discuss a project — we're here.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p>We're a small team that takes support seriously. When you contact FGPS, you reach real people with real expertise — not a helpdesk script.</p>
+
+                    <div class="contact-detail">
+                        <span class="contact-detail-icon">📞</span>
+                        <div>
+                            <strong style="color: var(--white)">Phone</strong><br>
+                            <a href="tel:+447793611932">+44 (0) 7793 611 932</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <span class="contact-detail-icon">📧</span>
+                        <div>
+                            <strong style="color: var(--white)">Email</strong><br>
+                            <a href="mailto:office@fgps.com">office@fgps.com</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <span class="contact-detail-icon">📍</span>
+                        <div>
+                            <strong style="color: var(--white)">Location</strong><br>
+                            Brighton, United Kingdom
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <span class="contact-detail-icon">🌐</span>
+                        <div>
+                            <strong style="color: var(--white)">Social</strong><br>
+                            <a href="https://www.linkedin.com/company/fgps-international-ltd" target="_blank">LinkedIn</a> · <a href="https://twitter.com/FGPS8" target="_blank">Twitter</a>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 40px; padding: 24px; background: rgba(0, 180, 216, 0.05); border: 1px solid rgba(0, 180, 216, 0.15); border-radius: 12px;">
+                        <h4 style="color: var(--white); margin-bottom: 8px;">🕐 Support Hours</h4>
+                        <p style="font-size: 14px; color: var(--navy-200); margin: 0;">24/7 support available during active surveys. Standard business hours (UK time) for general enquiries.</p>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="you@company.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company</label>
+                            <input type="text" id="company" name="company" placeholder="Your company">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">I'm interested in...</label>
+                            <select id="subject" name="subject">
+                                <option value="">Select a topic</option>
+                                <option value="demo">Software demo</option>
+                                <option value="licensing">Licensing & pricing</option>
+                                <option value="flqc">FLQC services</option>
+                                <option value="seiscloudnav">SeisCloudNAV</option>
+                                <option value="processing">Data processing</option>
+                                <option value="training">Training</option>
+                                <option value="consultancy">Consultancy</option>
+                                <option value="support">Technical support</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your project or requirements..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg form-submit">Send Message</button>
+                        <p class="form-note">We typically respond within 24 hours.</p>
+                    </form>
+                    <div id="contactSuccess" style="display: none; text-align: center; padding: 40px;">
+                        <div style="font-size: 48px; margin-bottom: 16px;">✉️</div>
+                        <h3>Message Received</h3>
+                        <p style="color: var(--navy-200); margin-top: 8px;">Thank you for reaching out. We'll get back to you within 24 hours.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 FGPS. All Rights Reserved.</p>
+                <p>Brighton, United Kingdom</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

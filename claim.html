@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claim This Site — Built for FGPS by ReavesHQ</title>
+    <meta name="description" content="We built this website redesign for FGPS at no cost. Claim it, customise it, or talk to us about taking it further.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar" style="top: 0;">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="logo-mark">FGPS</div>
+                <span class="logo-tagline">Preview</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">← Back to Site Preview</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="claim-hero">
+        <div class="container">
+            <div class="claim-badge">🎁 Complimentary Website Redesign</div>
+            <h1>We Built This For You.<br><span class="text-gradient">No Strings Attached.</span></h1>
+            <p>We're ReavesHQ — a small team that specialises in websites for technical B2B companies. We redesigned your site because we genuinely believe FGPS deserves a web presence that matches the quality of your software.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="claim-section">
+                <h2 style="color: var(--white); font-size: 28px; margin-bottom: 24px;">What You're Looking At</h2>
+
+                <ul class="claim-benefits">
+                    <li>A complete, responsive website redesign — 6 pages, fully built in HTML/CSS/JS</li>
+                    <li>Copy written specifically for your industry and your buyer personas (seismic contractors, E&P companies, consultancies)</li>
+                    <li>SeisCloudNAV given the spotlight it deserves — it's your most exciting product</li>
+                    <li>Your team's expertise and 25-year track record positioned front and centre</li>
+                    <li>Mobile-friendly, fast-loading, modern design appropriate for the energy sector</li>
+                    <li>Ready to deploy — this can go live at fgps.com today</li>
+                </ul>
+
+                <div style="padding: 32px; background: var(--navy-800); border: 1px solid var(--navy-600); border-radius: 16px; margin-bottom: 40px;">
+                    <h3 style="color: var(--white); font-size: 22px; margin-bottom: 16px;">Why We Did This</h3>
+                    <p style="color: var(--navy-200); line-height: 1.7; margin-bottom: 12px;">We work with technical companies in energy, engineering, and geoscience. When we found FGPS during our research, we were struck by the gap between what your company actually is — the industry standard for seismic navigation processing — and what your website communicates.</p>
+                    <p style="color: var(--navy-200); line-height: 1.7; margin-bottom: 12px;">Your software is used by most major contractors. Your founder has 45 years of experience. Your FLQC service is the independent standard. Your cloud product (SeisCloudNAV) is genuinely innovative.</p>
+                    <p style="color: var(--navy-200); line-height: 1.7;">None of that comes through on the current site. So we built what we think it should look like — and we're offering it to you, free of charge.</p>
+                </div>
+
+                <h3 style="color: var(--white); font-size: 22px; margin-bottom: 16px;">Your Options</h3>
+
+                <div class="services-grid" style="margin-bottom: 40px;">
+                    <div class="service-card">
+                        <div class="service-number" style="color: var(--green-500);">Free</div>
+                        <h3>Take the Site</h3>
+                        <p>It's yours. We'll hand over all the source files — HTML, CSS, JS — and you can deploy it yourself or have your team modify it however you like. No cost, no obligation.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-number" style="color: var(--accent-400);">Optional</div>
+                        <h3>Let Us Help Further</h3>
+                        <p>If you'd like us to refine the design, add features (client login portal, CMS integration, analytics), or handle deployment and ongoing updates — we can discuss that separately.</p>
+                    </div>
+                </div>
+
+                <!-- Claim Form -->
+                <div class="form-card">
+                    <h3 style="color: var(--white); font-size: 22px; margin-bottom: 8px; text-align: center;">Claim This Site</h3>
+                    <p style="color: var(--navy-200); text-align: center; margin-bottom: 28px; font-size: 15px;">Fill in your details and we'll send you the complete source files, no cost.</p>
+
+                    <form id="claimForm">
+                        <div class="form-group">
+                            <label for="claimName">Name *</label>
+                            <input type="text" id="claimName" name="name" required placeholder="Your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="claimEmail">Email *</label>
+                            <input type="email" id="claimEmail" name="email" required placeholder="you@fgps.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="claimCompany">Company</label>
+                            <input type="text" id="claimCompany" name="company" placeholder="FGPS" value="FGPS">
+                        </div>
+                        <div class="form-group">
+                            <label for="claimMessage">Anything you'd like to add? (optional)</label>
+                            <textarea id="claimMessage" name="message" placeholder="Questions, feedback, or what you'd like changed..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg form-submit" style="width: 100%; background: var(--cta-500); color: var(--navy-900);">Claim This Site — It's Free</button>
+                        <p class="form-note">We'll respond within 24 hours with the source files and deployment instructions.</p>
+                    </form>
+
+                    <div id="formSuccess" style="display: none; text-align: center; padding: 40px 20px;">
+                        <div style="font-size: 48px; margin-bottom: 16px;">🎉</div>
+                        <h3 style="color: var(--white); margin-bottom: 12px;">Claim Received!</h3>
+                        <p style="color: var(--navy-200); line-height: 1.7;">Thank you for your interest. We'll be in touch within 24 hours with the complete source files and everything you need to deploy this site.</p>
+                        <p style="color: var(--navy-300); margin-top: 16px; font-size: 14px;">In the meantime, feel free to explore the full preview: <a href="index.html">Browse the Site →</a></p>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 40px; padding: 24px;">
+                    <p style="color: var(--navy-400); font-size: 14px;">Questions? Email us directly at <a href="mailto:hello@reaveshq.com">hello@reaveshq.com</a></p>
+                    <p style="color: var(--navy-500); font-size: 13px; margin-top: 8px;">Built with care by <strong>ReavesHQ</strong> — Websites for technical companies that deserve better.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>Preview redesign built by <a href="mailto:hello@reaveshq.com">ReavesHQ</a></p>
+                <p>&copy; 2025 Site content belongs to FGPS.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
