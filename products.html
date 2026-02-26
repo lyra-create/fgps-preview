@@ -10,14 +10,71 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@2/dist/lottie-player.js"></script>
 </head>
 <body>
-<div class="network-bg-video">
-  <video autoplay muted loop playsinline>
-    <source src="assets/video/network-loop.webm" type="video/webm">
-    <source src="assets/video/network-loop.mp4" type="video/mp4">
-  </video>
-</div>
+<div class="network-bg-video"><video autoplay muted loop playsinline><source src="assets/video/network-loop.webm" type="video/webm"><source src="assets/video/network-loop.mp4" type="video/mp4"></video></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-mark">FGPS</span>
+        <span class="logo-tagline">Est. 2000</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="products.html">Software</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container" style="position:relative; z-index:1;">
+      <span class="section-label">Software Suite</span>
+      <h1>Navigation Processing Software<br>Built for the Real World</h1>
+      <p>Developed using real data from every major geophysical contractor. Every algorithm proven across thousands of surveys, under every configuration and condition imaginable.</p>
+    </div>
+  </section>
+
+  <!-- Quick Guide -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Quick Guide</span>
+        <h2>Which Product Do I Need?</h2>
+        <p>Not sure where to start? Here is the simplest way to think about the FGPS software suite.</p>
+      </div>
+
+      <div class="product-guide-grid">
+        <div class="guide-card">
+          <div class="guide-tag">Processing</div>
+          <h3>I need to process raw navigation data</h3>
+          <p>Start with <strong>SeisPos</strong> for P2-to-P1 processing. Add <strong>FBComp</strong> if you are working with OBC or OBN data where receiver coordinates need computing from first breaks.</p>
+        </div>
+        <div class="guide-card">
+          <div class="guide-tag">Quality Control</div>
+          <h3>I need to quality control final data</h3>
+          <p>Use <strong>P1Tools</strong> for comprehensive P1 QC and in-depth technical analysis. Use <strong>SPSPro</strong> for SPS-format land or marine OBC survey data.</p>
+        </div>
+        <div class="guide-card">
+          <div class="guide-tag">Planning</div>
+          <h3>I need to plan a survey or analyse coverage</h3>
+          <p>Use <strong>SeisPlan</strong> for creating survey preplots. Use <strong>SeisBin</strong> for 3D binning, fold analysis, and infill decisions on active or completed surveys.</p>
+        </div>
+        <div class="guide-card">
+          <div class="guide-tag">Utilities &amp; Cloud</div>
+          <h3>I need data conversion, format checking, or cloud QC</h3>
+          <p>Use <strong>SEGYTools</strong> for SEG-Y, <strong>Px11Utils</strong> for P1/11 and P2/11 formats. For live QC from any browser, use <strong>SeisCloudNAV</strong>.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Products List -->
@@ -252,17 +309,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="assets/js/main.js"></script>
-
-  <!-- Claim Widget -->
-  <div class="claim-widget" id="claimWidget">
-    <a href="claim.html" class="claim-widget-btn">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-      <span>Preview by ReavesHQ</span>
-    </a>
-    <button class="claim-widget-close" onclick="this.parentElement.style.display='none'" aria-label="Dismiss">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-    </button>
-  </div>
-
+  <div class="claim-widget" id="claimWidget"><a href="claim.html" class="claim-widget-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg><span>Preview by ReavesHQ</span></a><button class="claim-widget-close" onclick="this.parentElement.style.display='none'" aria-label="Dismiss"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div>
 </body>
 </html>

@@ -231,10 +231,136 @@
       });
     });
 
-    const staggerSelectors = [
-      '.problem-grid',
-      '.products-grid',
-      '.why-grid',
+    // Problem cards: alternating left/right slide-in
+    var problemGrid = document.querySelector('.problem-grid');
+    if (problemGrid && problemGrid.children.length) {
+      Array.from(problemGrid.children).forEach(function (card, i) {
+        var fromX = (i % 2 === 0) ? -60 : 60;
+        gsap.from(card, {
+          opacity: 0,
+          x: fromX,
+          duration: 0.75,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: problemGrid,
+            start: 'top 85%',
+            once: true
+          },
+          delay: i * 0.12
+        });
+      });
+    }
+
+    // Product cards: scale from 0.85 with slight rotation, plus fade
+    var productsGrid = document.querySelector('.products-grid');
+    if (productsGrid && productsGrid.children.length) {
+      gsap.from(productsGrid.children, {
+        opacity: 0,
+        scale: 0.85,
+        rotation: -2,
+        stagger: 0.1,
+        duration: 0.72,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: productsGrid,
+          start: 'top 85%',
+          once: true
+        }
+      });
+    }
+
+    // Why FGPS cards: stagger with bounce ease
+    var whyGrid = document.querySelector('.why-grid');
+    if (whyGrid && whyGrid.children.length) {
+      gsap.from(whyGrid.children, {
+        opacity: 0,
+        y: 40,
+        stagger: 0.13,
+        duration: 0.82,
+        ease: 'back.out(1.4)',
+        scrollTrigger: {
+          trigger: whyGrid,
+          start: 'top 85%',
+          once: true
+        }
+      });
+    }
+
+    // SeisCloudNAV spotlight: text slides from left, image from right
+    var spotlightCopy = document.querySelector('.spotlight-copy');
+    var spotlightVisual = document.querySelector('.spotlight-visual');
+    if (spotlightCopy) {
+      gsap.from(spotlightCopy, {
+        opacity: 0,
+        x: -60,
+        duration: 0.9,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: spotlightCopy,
+          start: 'top 82%',
+          once: true
+        }
+      });
+    }
+    if (spotlightVisual) {
+      gsap.from(spotlightVisual, {
+        opacity: 0,
+        x: 60,
+        duration: 0.9,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: spotlightVisual,
+          start: 'top 82%',
+          once: true
+        }
+      });
+    }
+
+    // Stats: each stat scales up from 0 with spring-like bounce
+    var statItems = document.querySelectorAll('.hero-stats .stat');
+    if (statItems.length) {
+      gsap.from(statItems, {
+        opacity: 0,
+        scale: 0,
+        stagger: 0.1,
+        duration: 0.7,
+        ease: 'back.out(1.7)',
+        delay: 0.6
+      });
+    }
+
+    // Section headers: clip-path wipe from left
+    document.querySelectorAll('.section-header h2').forEach(function (el) {
+      gsap.from(el, {
+        clipPath: 'inset(0 100% 0 0)',
+        opacity: 0,
+        duration: 0.9,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 88%',
+          once: true
+        }
+      });
+    });
+
+    // Section header labels and paragraphs: fade + slide
+    document.querySelectorAll('.section-header .section-label, .section-header p').forEach(function (el) {
+      gsap.from(el, {
+        opacity: 0,
+        y: 18,
+        duration: 0.66,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 90%',
+          once: true
+        }
+      });
+    });
+
+    // Remaining stagger selectors (excluding ones handled above)
+    var remainingSelectors = [
       '.trust-quote-grid',
       '.product-guide-grid',
       '.products-list',
@@ -243,8 +369,8 @@
       '.timeline'
     ];
 
-    staggerSelectors.forEach(function (selector) {
-      const parent = document.querySelector(selector);
+    remainingSelectors.forEach(function (selector) {
+      var parent = document.querySelector(selector);
       if (!parent || !parent.children.length) return;
 
       gsap.from(parent.children, {
@@ -261,22 +387,7 @@
       });
     });
 
-    document.querySelectorAll('.section-header, .spotlight-copy').forEach(function (el) {
-      gsap.from(el.children, {
-        opacity: 0,
-        y: 24,
-        stagger: 0.1,
-        duration: 0.66,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 88%',
-          once: true
-        }
-      });
-    });
-
-    const ctaContent = document.querySelector('.cta-content');
+    var ctaContent = document.querySelector('.cta-content');
     if (ctaContent) {
       gsap.from(ctaContent.children, {
         opacity: 0,
@@ -294,23 +405,8 @@
   }
 
   function initSpotlight() {
-    if (!hasGSAP || !hasScrollTrigger || prefersReducedMotion) return;
-
-    const frame = document.querySelector('.browser-frame');
-    if (!frame) return;
-
-    gsap.from(frame, {
-      opacity: 0,
-      x: 64,
-      rotationY: 7,
-      duration: 1.0,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: frame,
-        start: 'top 82%',
-        once: true
-      }
-    });
+    // Spotlight copy and visual are handled in initReveal with enhanced animations.
+    // No additional animation needed here.
   }
 
   function initTrustBadges() {
