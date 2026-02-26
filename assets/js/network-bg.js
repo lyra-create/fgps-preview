@@ -399,13 +399,34 @@
     if (!document.hidden) lastT = 0;
   });
 
+  // Freeze animation during scroll to prevent node jumping
+  var scrolling = false;
+  var scrollTimer = null;
+  window.addEventListener('scroll', function () {
+    scrolling = true;
+    if (scrollTimer) clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(function () { scrolling = false; }, 150);
+  }, { passive: true });
+
+  // Also freeze during touch-drag (mobile overscroll)
+  window.addEventListener('touchmove', function () {
+    scrolling = true;
+    if (scrollTimer) clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(function () { scrolling = false; }, 150);
+  }, { passive: true });
+
   function frame(t) {
     requestAnimationFrame(frame);
     if (document.hidden) return;
 
     if (lastT === 0) { lastT = t; return; }
-    var dt = Math.min(t - lastT, 48);  // cap at 48ms (~20fps minimum)
+    var rawDt = t - lastT;
     lastT = t;
+
+    // Skip updates during scroll/touch to prevent visual jumping
+    if (scrolling || rawDt > 100) { return; }
+
+    var dt = Math.min(rawDt, 32);  // cap at 32ms (~30fps minimum, tighter cap)
 
     // ── Update ──
     for (var i = 0; i < nodes.length;  i++) nodes[i].update(t, dt);
