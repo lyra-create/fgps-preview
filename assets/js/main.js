@@ -55,6 +55,7 @@
     if (toggle && links) {
       const onToggle = function () {
         links.classList.toggle('open');
+        toggle.classList.toggle('open');
         document.body.style.overflow = links.classList.contains('open') ? 'hidden' : '';
       };
 
@@ -66,6 +67,7 @@
       links.querySelectorAll('a').forEach(function (a) {
         const onClick = function () {
           links.classList.remove('open');
+          toggle.classList.remove('open');
           document.body.style.overflow = '';
         };
         a.addEventListener('click', onClick);
