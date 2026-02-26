@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
 </head>
 <body>
     <nav class="navbar" id="navbar" style="top: 0;">
@@ -28,7 +29,7 @@
 
     <section class="claim-hero">
         <div class="container">
-            <div class="claim-badge">🎁 Complimentary Website Redesign</div>
+            <div class="claim-badge" style="display:inline-flex;align-items:center;gap:8px;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg> Complimentary Website Redesign</div>
             <h1>We Built This For You.<br><span class="text-gradient">No Strings Attached.</span></h1>
             <p>We're ReavesHQ — a small team that specialises in websites for technical B2B companies. We redesigned your site because we genuinely believe FGPS deserves a web presence that matches the quality of your software.</p>
         </div>
@@ -75,7 +76,10 @@
                     <h3 style="color: var(--white); font-size: 22px; margin-bottom: 8px; text-align: center;">Claim This Site</h3>
                     <p style="color: var(--navy-200); text-align: center; margin-bottom: 28px; font-size: 15px;">Fill in your details and we'll send you the complete source files, no cost.</p>
 
-                    <form id="claimForm">
+                    <form id="claimForm" action="https://formsubmit.co/lyra@reaveshq.com" method="POST">
+                        <input type="hidden" name="_subject" value="FGPS Site Claim">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="claim.html?success=true">
                         <div class="form-group">
                             <label for="claimName">Name *</label>
                             <input type="text" id="claimName" name="name" required placeholder="Your name">
@@ -97,7 +101,7 @@
                     </form>
 
                     <div id="formSuccess" style="display: none; text-align: center; padding: 40px 20px;">
-                        <div style="font-size: 48px; margin-bottom: 16px;">🎉</div>
+                        <div style="margin-bottom: 16px; color: var(--green-500); display:flex; justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
                         <h3 style="color: var(--white); margin-bottom: 12px;">Claim Received!</h3>
                         <p style="color: var(--navy-200); line-height: 1.7;">Thank you for your interest. We'll be in touch within 24 hours with the complete source files and everything you need to deploy this site.</p>
                         <p style="color: var(--navy-300); margin-top: 16px; font-size: 14px;">In the meantime, feel free to explore the full preview: <a href="index.html">Browse the Site →</a></p>
@@ -105,7 +109,7 @@
                 </div>
 
                 <div style="text-align: center; margin-top: 40px; padding: 24px;">
-                    <p style="color: var(--navy-400); font-size: 14px;">Questions? Email us directly at <a href="mailto:hello@reaveshq.com">hello@reaveshq.com</a></p>
+                    <p style="color: var(--navy-400); font-size: 14px;">Questions? Email us directly at <a href="mailto:lyra@reaveshq.com">lyra@reaveshq.com</a></p>
                     <p style="color: var(--navy-500); font-size: 13px; margin-top: 8px;">Built with care by <strong>ReavesHQ</strong> — Websites for technical companies that deserve better.</p>
                 </div>
             </div>
@@ -115,12 +119,23 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-bottom">
-                <p>Preview redesign built by <a href="mailto:hello@reaveshq.com">ReavesHQ</a></p>
-                <p>&copy; 2025 Site content belongs to FGPS.</p>
+                <p>Preview redesign built by <a href="mailto:lyra@reaveshq.com">ReavesHQ</a></p>
+                <p>&copy; 2026 Site content belongs to FGPS.</p>
             </div>
         </div>
     </footer>
 
     <script src="assets/js/main.js"></script>
+    <script>
+        // Show success state if redirected back with ?success=true
+        if (new URLSearchParams(window.location.search).get('success') === 'true') {
+            var form = document.getElementById('claimForm');
+            var success = document.getElementById('formSuccess');
+            if (form) form.style.display = 'none';
+            if (success) success.style.display = 'block';
+            // Scroll success into view
+            if (success) success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    </script>
 </body>
 </html>

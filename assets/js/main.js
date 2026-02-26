@@ -112,39 +112,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     statNumbers.forEach(el => counterObserver.observe(el));
 
-    // --- Claim form submission ---
-    const claimForm = document.getElementById('claimForm');
-    if (claimForm) {
-        claimForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            const formData = new FormData(claimForm);
-            const data = Object.fromEntries(formData.entries());
-
-            // Show success message
-            const successMsg = document.getElementById('formSuccess');
-            const submitBtn = claimForm.querySelector('.form-submit');
-
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-
-            // Simulate sending (in production, this would POST to an endpoint)
-            setTimeout(() => {
-                claimForm.style.display = 'none';
-                if (successMsg) {
-                    successMsg.style.display = 'block';
-                }
-
-                // Also try to actually send via mailto as fallback
-                const subject = encodeURIComponent('FGPS Website Redesign — Claim');
-                const body = encodeURIComponent(
-                    `Name: ${data.name}\nEmail: ${data.email}\nCompany: ${data.company || 'N/A'}\nMessage: ${data.message || 'No additional message'}`
-                );
-                // Open mail client as backup
-                // window.location.href = `mailto:hello@reaveshq.com?subject=${subject}&body=${body}`;
-            }, 1200);
-        });
-    }
+    // --- Claim form: handled natively via FormSubmit.co POST ---
+    // Success state shown on return via ?success=true (see inline script in claim.html)
 
     // --- Contact form ---
     const contactForm = document.getElementById('contactForm');
