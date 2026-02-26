@@ -12,98 +12,6 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-
-  <!-- Preview Banner -->
-  <div class="preview-banner">
-    <div class="preview-banner-content">
-      <span class="preview-banner-text">
-        <span class="preview-dot"></span>
-        Complimentary preview redesign of fgps.com — Built by <strong>ReavesHQ</strong>
-      </span>
-      <a href="claim.html" class="preview-banner-cta">Claim This Site</a>
-    </div>
-  </div>
-
-  <!-- Navigation -->
-  <nav class="navbar" id="navbar">
-    <div class="container nav-container">
-      <a href="index.html" class="nav-logo">
-        <span class="logo-mark">FGPS</span>
-        <span class="logo-tagline">Est. 2000</span>
-      </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="products.html">Software</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- About Hero -->
-  <section class="about-hero">
-    <div class="about-hero-bg">
-      <img src="assets/img/about-data.png" alt="Seismic navigation data visualisation" loading="eager">
-    </div>
-    <div class="about-hero-overlay"></div>
-    <div class="container">
-      <div class="about-hero-content">
-        <span class="section-label">About FGPS</span>
-        <h1>Software Built by Surveyors,<br>for Surveyors</h1>
-        <p>Founded in 2000, FGPS has spent 25 years developing the only software suite dedicated exclusively to seismic survey navigation processing and quality control. Every line of code written from a surveyor's perspective — because it was.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Origin Story -->
-  <section class="section">
-    <div class="container">
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: flex-start;">
-        <div class="reveal">
-          <span class="section-label">The Origin</span>
-          <h2 style="margin-bottom: 20px;">Born from Experience<br>No One Else Had</h2>
-          <p style="color: var(--text-secondary); font-size: 16px; line-height: 1.75; margin-bottom: 16px;">FGPS was founded in 2000 by Paul Dowd, a marine seismic surveyor who had spent two decades watching the industry try to adapt general-purpose tools for the specific, demanding requirements of seismic navigation processing.</p>
-          <p style="color: var(--text-secondary); font-size: 16px; line-height: 1.75; margin-bottom: 16px;">The problem was not a lack of software — it was that none of the available tools had been built by people who understood what seismic positioning actually required. Hydrographic tools were adapted. In-house scripts were patched together. The result was errors, delays, and a persistent uncertainty about whether the data was correct.</p>
-          <p style="color: var(--text-secondary); font-size: 16px; line-height: 1.75;">Paul built the first version of SeisPos himself, from scratch, informed by years of processing real survey data across every major contractor fleet. That foundation — purpose-built from day one — is what still differentiates every FGPS product today.</p>
-        </div>
-
-        <div class="reveal">
-          <span class="section-label" style="margin-bottom: 28px; display: block;">Company Timeline</span>
-          <div class="timeline">
-            <div class="timeline-item">
-              <div class="timeline-year">2000</div>
-              <h3>FGPS Founded</h3>
-              <p>Paul Dowd establishes FGPS and releases the first version of SeisPos — the only navigation processing tool built exclusively for seismic surveys. Early adoption across several major contractors validates the approach.</p>
-            </div>
-
-            <div class="timeline-item">
-              <div class="timeline-year">2004 — 2010</div>
-              <h3>Suite Expansion</h3>
-              <p>P1Tools, SeisBin, SeisPlan, SPSPro, and FBComp are developed and released. FGPS establishes itself as the specialist software provider for seismic navigation — used by most of the world's leading geophysical contractors.</p>
-            </div>
-
-            <div class="timeline-item">
-              <div class="timeline-year">2011</div>
-              <h3>Robin Pellatt Joins</h3>
-              <p>Robin Pellatt — a seismic navigation specialist with deep field experience — joins FGPS as Senior Developer. The team expands its development capacity and deepens its technical capability across the full product suite.</p>
-            </div>
-
-            <div class="timeline-item">
-              <div class="timeline-year">2011 — 2023</div>
-              <h3>Continued Development</h3>
-              <p>The software suite is continuously refined based on direct feedback from field and office users. FGPS introduces support for IOGP P1/11 and P2/11 formats as the industry transitions from legacy UKOOA standards.</p>
-            </div>
-
-            <div class="timeline-item">
-              <div class="timeline-year">2024</div>
-              <h3>SeisCloudNAV Launched</h3>
-              <p>FGPS launches SeisCloudNAV — a cloud-based platform for real-time navigation QC delivered through the browser. For the first time, E&amp;P companies, contractors, and consultants can all monitor live navigation data simultaneously, minutes after acquisition.</p>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -251,6 +159,18 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="assets/js/main.js"></script>
+
+  <!-- Claim Widget -->
+  <div class="claim-widget" id="claimWidget">
+    <a href="claim.html" class="claim-widget-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      <span>Preview by ReavesHQ</span>
+    </a>
+    <button class="claim-widget-close" onclick="this.parentElement.style.display='none'" aria-label="Dismiss">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+
   <script src="assets/js/network-bg.js"></script>
 </body>
 </html>

@@ -12,74 +12,6 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-
-  <!-- Preview Banner -->
-  <div class="preview-banner">
-    <div class="preview-banner-content">
-      <span class="preview-banner-text">
-        <span class="preview-dot"></span>
-        Complimentary preview redesign of fgps.com — Built by <strong>ReavesHQ</strong>
-      </span>
-      <a href="claim.html" class="preview-banner-cta">Claim This Site</a>
-    </div>
-  </div>
-
-  <!-- Navigation -->
-  <nav class="navbar" id="navbar">
-    <div class="container nav-container">
-      <a href="index.html" class="nav-logo">
-        <span class="logo-mark">FGPS</span>
-        <span class="logo-tagline">Est. 2000</span>
-      </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="products.html">Software</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- ===================== HERO ===================== -->
-  <section class="hero">
-    <div class="hero-bg">
-      <img src="assets/img/hero-v3.png" alt="Seismic survey vessel at sea" fetchpriority="high">
-    </div>
-    <div class="hero-overlay"></div>
-    <div class="hero-grid-overlay"></div>
-
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-badge">
-          <span class="hero-badge-dot"></span>
-          Trusted since 2000
-        </div>
-        <h1 class="hero-headline">Precision Navigation Processing.</h1>
-        <p class="hero-sub">25 years of software built by surveyors, for surveyors.</p>
-        <div class="hero-actions">
-          <a href="products.html" class="btn btn-teal btn-lg">Explore Products</a>
-          <a href="services.html#seiscloudnav" class="btn btn-outline btn-lg">SeisCloudNAV</a>
-        </div>
-        <div class="hero-stats">
-          <div class="stat">
-            <span class="stat-number" data-target="25" data-suffix="+">25+</span>
-            <span class="stat-label">Years</span>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat">
-            <span class="stat-number" data-target="10" data-suffix="+">10+</span>
-            <span class="stat-label">Products</span>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat">
-            <span class="stat-number" data-target="30" data-suffix="+">30+</span>
-            <span class="stat-label">Countries</span>
-          </div>
-        </div>
-      </div>
     </div>
 
     <div class="hero-scroll">
@@ -444,6 +376,18 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="assets/js/main.js"></script>
+
+  <!-- Claim Widget -->
+  <div class="claim-widget" id="claimWidget">
+    <a href="claim.html" class="claim-widget-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      <span>Preview by ReavesHQ</span>
+    </a>
+    <button class="claim-widget-close" onclick="this.parentElement.style.display='none'" aria-label="Dismiss">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+
   <script src="assets/js/network-bg.js"></script>
 </body>
 </html>

@@ -12,101 +12,6 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-
-  <!-- Preview Banner -->
-  <div class="preview-banner">
-    <div class="preview-banner-content">
-      <span class="preview-banner-text">
-        <span class="preview-dot"></span>
-        Complimentary preview redesign of fgps.com — Built by <strong>ReavesHQ</strong>
-      </span>
-      <a href="claim.html" class="preview-banner-cta">Claim This Site</a>
-    </div>
-  </div>
-
-  <!-- Navigation -->
-  <nav class="navbar" id="navbar">
-    <div class="container nav-container">
-      <a href="index.html" class="nav-logo">
-        <span class="logo-mark">FGPS</span>
-        <span class="logo-tagline">Est. 2000</span>
-      </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="products.html">Software</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- Page Hero -->
-  <section class="page-hero">
-    <div class="container" style="position:relative; z-index:1;">
-      <span class="section-label">Services</span>
-      <h1>More Than Software.<br>Complete Navigation Support.</h1>
-      <p>Expert services covering the full survey lifecycle — from pre-acquisition planning through to independent QC and final deliverable verification.</p>
-    </div>
-  </section>
-
-  <!-- ===== SeisCloudNAV ===== -->
-  <section class="section" id="seiscloudnav">
-    <div class="container">
-      <div class="spotlight-inner">
-        <div class="spotlight-copy reveal">
-          <span class="section-label">Cloud QC — Launched 2024</span>
-          <h2>SeisCloudNAV</h2>
-          <p class="spotlight-lead">Real-time navigation quality control in your browser.</p>
-          <p>Traditional QC is backwards-looking. By the time the report arrives, the vessel has moved on and the budget for remediation is already spent. SeisCloudNAV changes the model entirely.</p>
-          <p>Our proprietary compression algorithm transmits navigation data from the field to cloud dashboards within minutes of acquisition — without any loss of fidelity. E&amp;P companies, their contractors, and independent consultants can all monitor the same survey data simultaneously.</p>
-          <ul class="check-list">
-            <li>
-              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              Live navigation data in your browser — minutes after acquisition
-            </li>
-            <li>
-              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              No client-side software installation required
-            </li>
-            <li>
-              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              Real-time integrity and format checking
-            </li>
-            <li>
-              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              User-configurable plots and acceptance thresholds
-            </li>
-            <li>
-              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              Unlimited user logins per project
-            </li>
-            <li>
-              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              Survey-wide trend analysis — spot issues before they compound
-            </li>
-            <li>
-              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              Currently supporting P1 format — OBS in active development
-            </li>
-          </ul>
-          <a href="contact.html" class="btn btn-primary btn-lg">Request a Demo</a>
-        </div>
-
-        <div class="spotlight-visual">
-          <div class="browser-frame">
-            <div class="browser-bar">
-              <span class="browser-dot"></span>
-              <span class="browser-dot"></span>
-              <span class="browser-dot"></span>
-              <span class="browser-url">app.seiscloudnav.com / survey / active</span>
-            </div>
-            <img src="assets/img/fgps-products-original.png" alt="SeisCloudNAV dashboard showing real-time navigation QC" loading="lazy">
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -313,6 +218,18 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="assets/js/main.js"></script>
+
+  <!-- Claim Widget -->
+  <div class="claim-widget" id="claimWidget">
+    <a href="claim.html" class="claim-widget-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      <span>Preview by ReavesHQ</span>
+    </a>
+    <button class="claim-widget-close" onclick="this.parentElement.style.display='none'" aria-label="Dismiss">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+
   <script src="assets/js/network-bg.js"></script>
 </body>
 </html>
