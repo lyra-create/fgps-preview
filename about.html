@@ -1,212 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About — FGPS</title>
-    <meta name="description" content="FGPS was established in 2000 to provide seismic navigation processing software and services. Learn about our history, team, and mission.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — FGPS</title>
+  <meta name="description" content="FGPS was founded in 2000 by Paul Dowd, a seismic surveyor with more than 45 years in the industry. Software built from a surveyor's perspective.">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <div class="preview-banner">
-        <div class="preview-banner-content">
-            <span class="preview-banner-text">
-                <span class="preview-dot"></span>
-                This is a complimentary preview redesign of fgps.com — Built by <strong>ReavesHQ</strong>
-            </span>
-            <a href="claim.html" class="preview-banner-cta">Claim This Site →</a>
-        </div>
+
+  <!-- Preview Banner -->
+  <div class="preview-banner">
+    <div class="preview-banner-content">
+      <span class="preview-banner-text">
+        <span class="preview-dot"></span>
+        Complimentary preview redesign of fgps.com — Built by <strong>ReavesHQ</strong>
+      </span>
+      <a href="claim.html" class="preview-banner-cta">Claim This Site</a>
     </div>
+  </div>
 
-    <nav class="navbar" id="navbar">
-        <div class="container nav-container">
-            <a href="index.html" class="nav-logo">
-                <div class="logo-mark">FGPS</div>
-                <span class="logo-tagline">Est. 2000</span>
-            </a>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-                <span></span><span></span><span></span>
-            </button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html#solutions">Solutions</a></li>
-                <li><a href="products.html">Software</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="index.html#cloud">SeisCloudNAV</a></li>
-                <li><a href="about.html" style="color:var(--accent-400)">About</a></li>
-                <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
-            </ul>
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-mark">FGPS</span>
+        <span class="logo-tagline">Est. 2000</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="products.html">Software</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- About Hero -->
+  <section class="about-hero">
+    <div class="about-hero-bg">
+      <img src="assets/img/about-data.png" alt="Seismic navigation data visualisation" loading="eager">
+    </div>
+    <div class="about-hero-overlay"></div>
+    <div class="container">
+      <div class="about-hero-content">
+        <span class="section-label">About FGPS</span>
+        <h1>Software Built by Surveyors,<br>for Surveyors</h1>
+        <p>Founded in 2000, FGPS has spent 25 years developing the only software suite dedicated exclusively to seismic survey navigation processing and quality control. Every line of code written from a surveyor's perspective — because it was.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Origin Story -->
+  <section class="section">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: flex-start;">
+        <div class="reveal">
+          <span class="section-label">The Origin</span>
+          <h2 style="margin-bottom: 20px;">Born from Experience<br>No One Else Had</h2>
+          <p style="color: var(--text-secondary); font-size: 16px; line-height: 1.75; margin-bottom: 16px;">FGPS was founded in 2000 by Paul Dowd, a marine seismic surveyor who had spent two decades watching the industry try to adapt general-purpose tools for the specific, demanding requirements of seismic navigation processing.</p>
+          <p style="color: var(--text-secondary); font-size: 16px; line-height: 1.75; margin-bottom: 16px;">The problem was not a lack of software — it was that none of the available tools had been built by people who understood what seismic positioning actually required. Hydrographic tools were adapted. In-house scripts were patched together. The result was errors, delays, and a persistent uncertainty about whether the data was correct.</p>
+          <p style="color: var(--text-secondary); font-size: 16px; line-height: 1.75;">Paul built the first version of SeisPos himself, from scratch, informed by years of processing real survey data across every major contractor fleet. That foundation — purpose-built from day one — is what still differentiates every FGPS product today.</p>
         </div>
-    </nav>
 
-    <section class="page-hero" style="position:relative; overflow:hidden;">
-        <div style="position:absolute; inset:0; z-index:0; background-image: url('assets/img/about-data.png'); background-size:cover; background-position:center; opacity:0.18; pointer-events:none;"></div>
-        <div class="container" style="position:relative; z-index:1;">
-            <span class="section-label">Our Story</span>
-            <h1>25 Years of Getting<br>Navigation Right</h1>
-            <p>FGPS was built on a simple premise: seismic surveyors deserve tools made by someone who actually understands their work.</p>
+        <div class="reveal">
+          <span class="section-label" style="margin-bottom: 28px; display: block;">Company Timeline</span>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-year">2000</div>
+              <h3>FGPS Founded</h3>
+              <p>Paul Dowd establishes FGPS and releases the first version of SeisPos — the only navigation processing tool built exclusively for seismic surveys. Early adoption across several major contractors validates the approach.</p>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-year">2004 — 2010</div>
+              <h3>Suite Expansion</h3>
+              <p>P1Tools, SeisBin, SeisPlan, SPSPro, and FBComp are developed and released. FGPS establishes itself as the specialist software provider for seismic navigation — used by most of the world's leading geophysical contractors.</p>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-year">2011</div>
+              <h3>Robin Pellatt Joins</h3>
+              <p>Robin Pellatt — a seismic navigation specialist with deep field experience — joins FGPS as Senior Developer. The team expands its development capacity and deepens its technical capability across the full product suite.</p>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-year">2011 — 2023</div>
+              <h3>Continued Development</h3>
+              <p>The software suite is continuously refined based on direct feedback from field and office users. FGPS introduces support for IOGP P1/11 and P2/11 formats as the industry transitions from legacy UKOOA standards.</p>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-year">2024</div>
+              <h3>SeisCloudNAV Launched</h3>
+              <p>FGPS launches SeisCloudNAV — a cloud-based platform for real-time navigation QC delivered through the browser. For the first time, E&amp;P companies, contractors, and consultants can all monitor live navigation data simultaneously, minutes after acquisition.</p>
+            </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section class="section">
-        <div class="container">
-            <div class="about-story">
-                <div class="about-story-content">
-                    <h2>Built by a Surveyor.<br>Not a Committee.</h2>
-                    <p>In 2000, Paul Dowd — a surveyor who had been working in seismic since 1981 — co-founded FGPS to solve a problem he'd lived with for nearly two decades: the tools available for seismic navigation processing weren't good enough.</p>
-                    <p>Having worked with Western Geophysical and Horizon Exploration, Paul had seen every type of survey configuration, every data challenge, every "impossible" dataset. When he sat down to write navigation processing software, he wasn't theorising about what surveyors needed — he was building what he'd wished he'd had.</p>
-                    <p>That philosophy hasn't changed. Every FGPS product has been developed using real data from real surveys. The algorithms aren't textbook implementations — they're battle-tested solutions refined over thousands of surveys across every major contractor fleet.</p>
-                    <p>FGPS has grown deliberately and sustainably. We're not chasing hypergrowth or venture capital. We're building the best navigation processing tools in the world, and we're doing it one survey at a time.</p>
-                </div>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <span class="timeline-year">1981</span>
-                        <h4>Paul enters seismic industry</h4>
-                        <p>Starting with Western Geophysical during the golden age of marine seismic expansion.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-year">1990s</span>
-                        <h4>Horizon Exploration</h4>
-                        <p>Working with one of the pioneering navigation technology companies.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-year">1995</span>
-                        <h4>Independent consulting</h4>
-                        <p>Paul begins providing independent navigation and QC services.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-year">2000</span>
-                        <h4>FGPS founded</h4>
-                        <p>Established to provide navigation post-processing software and services to the seismic industry.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-year">2000s</span>
-                        <h4>Industry adoption</h4>
-                        <p>Most major seismic contractors adopt FGPS software for navigation processing.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-year">2020s</span>
-                        <h4>Cloud evolution</h4>
-                        <p>Launch of SeisCloudNAV — bringing real-time navigation QC to the cloud.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-year">Today</span>
-                        <h4>25+ years strong</h4>
-                        <p>A quarter-century of continuous development, trusted worldwide.</p>
-                    </div>
-                </div>
-            </div>
+  <!-- Team -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">The Team</span>
+        <h2>Small Team. Deep Expertise.</h2>
+        <p>FGPS is deliberately small. Our users speak directly to the people who built the software — not to a support tier.</p>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <h3>Paul Dowd</h3>
+          <p class="team-role">Founder &amp; Lead Developer</p>
+          <p>Marine seismic surveyor turned software developer. More than 45 years in the seismic industry. Founded FGPS in 2000 with the conviction that the right tools had to be built by people who had actually been on the back deck of a seismic vessel.</p>
         </div>
-    </section>
 
-    <section class="section section-dark">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Our Team</span>
-                <h2>Experienced. Dedicated. Reachable.</h2>
-                <p class="section-sub">We're small enough that you'll know us by name. Big enough to support surveys worldwide, 24 hours a day.</p>
-            </div>
-            <div class="team-grid">
-                <div class="team-card">
-                    <div class="team-avatar">PD</div>
-                    <h4>Paul Dowd</h4>
-                    <div class="team-role">Co-Founder & Original Software Author</div>
-                    <p>In seismic since 1981. Western Geophysical, Horizon Exploration. The surveyor who built the software because he needed it himself.</p>
-                </div>
-                <div class="team-card">
-                    <div class="team-avatar">RP</div>
-                    <h4>Robin Pellatt</h4>
-                    <div class="team-role">Software Development & IT</div>
-                    <p>10+ years with FGPS. Responsible for software development, cloud infrastructure, and IT systems.</p>
-                </div>
-                <div class="team-card">
-                    <div class="team-avatar">MP</div>
-                    <h4>Mark Payne</h4>
-                    <div class="team-role">FLQC & Technical Support</div>
-                    <p>Leads the FLQC service and provides frontline technical support to clients worldwide.</p>
-                </div>
-                <div class="team-card">
-                    <div class="team-avatar">SV</div>
-                    <h4>Sergey Vinnichenko</h4>
-                    <div class="team-role">Business Development</div>
-                    <p>Growing FGPS's presence across new markets and regions.</p>
-                </div>
-                <div class="team-card">
-                    <div class="team-avatar">EC</div>
-                    <h4>Everett Cloessner</h4>
-                    <div class="team-role">FLQC Operations</div>
-                    <p>Supporting the FLQC service and ensuring quality standards across client projects.</p>
-                </div>
-            </div>
+        <div class="team-card">
+          <div class="team-avatar">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <h3>Robin Pellatt</h3>
+          <p class="team-role">Senior Developer</p>
+          <p>Seismic navigation specialist with extensive field and processing experience. Joined FGPS in 2011 and has contributed to every major product release since. Core developer behind SeisCloudNAV and the IOGP P1/11 format implementations.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section class="section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">What We Believe</span>
-                <h2>Our Principles</h2>
-            </div>
-            <div class="problem-grid">
-                <div class="problem-card">
-                    <h3>Technical Integrity First</h3>
-                    <p>Our software exists so surveyors can do more than "just produce a result". Every calculation is reproducible, every algorithm is defensible, every report is audit-ready. We don't cut corners on accuracy.</p>
-                </div>
-                <div class="problem-card">
-                    <h3>Sustainable Growth</h3>
-                    <p>We've expanded at a deliberate rate for 25 years. No boom-bust cycles, no panic pivots. Our clients can depend on FGPS being here in 5, 10, 25 years — because we're built to last.</p>
-                </div>
-                <div class="problem-card">
-                    <h3>Independence Matters</h3>
-                    <p>We're not owned by a contractor, an equipment manufacturer, or a private equity firm. Our recommendations are genuinely independent, and our QC is truly neutral. That's by design.</p>
-                </div>
-            </div>
+  <!-- Principles -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">How We Work</span>
+        <h2>Company Principles</h2>
+        <p>The values that have guided FGPS for 25 years — and that still govern every product decision we make.</p>
+      </div>
+
+      <div class="principles-grid">
+        <div class="principle-card reveal">
+          <div class="principle-num">01</div>
+          <h3>Single Focus</h3>
+          <p>We do one thing: seismic navigation software. We do not do hydrographic surveys. We do not bolt navigation onto bigger platforms. Single focus produces deeper expertise.</p>
         </div>
-    </section>
 
-    <section class="section section-cta">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Want to Work With Us?</h2>
-                <p>We're always looking for talented surveyors, developers, and geoscientists who share our passion for getting navigation right.</p>
-                <div class="cta-actions">
-                    <a href="contact.html" class="btn btn-primary btn-lg">Get in Touch</a>
-                </div>
-            </div>
+        <div class="principle-card reveal">
+          <div class="principle-num">02</div>
+          <h3>Built in the Field</h3>
+          <p>Every feature in every FGPS product has been informed by real survey data and real user feedback. If it fails in the field, we hear about it — because our users call us directly.</p>
         </div>
-    </section>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <div class="logo-mark">FGPS</div>
-                    <p>Navigation processing software & services for seismic surveys. Since 2000.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Software</h4>
-                    <a href="products.html">View All Products</a>
-                </div>
-                <div class="footer-links">
-                    <h4>Services</h4>
-                    <a href="services.html">View All Services</a>
-                </div>
-                <div class="footer-links">
-                    <h4>Contact</h4>
-                    <a href="tel:+447793611932">+44 (0) 7793 611 932</a>
-                    <a href="mailto:office@fgps.com">office@fgps.com</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 FGPS. All Rights Reserved.</p>
-                <p>Brighton, United Kingdom</p>
-            </div>
+        <div class="principle-card reveal">
+          <div class="principle-num">03</div>
+          <h3>True Independence</h3>
+          <p>FGPS is not owned by a contractor, a conglomerate, or an investment fund. Our independence is structural, not cosmetic. Our loyalty is to our users and to the accuracy of the data they produce.</p>
         </div>
-    </footer>
 
-    <script src="assets/js/main.js"></script>
+        <div class="principle-card reveal">
+          <div class="principle-num">04</div>
+          <h3>Precision Over Convenience</h3>
+          <p>We do not simplify algorithms to make software easier to sell. We build tools that are precise, because precision is what matters when vessel time costs more than most annual budgets.</p>
+        </div>
+
+        <div class="principle-card reveal">
+          <div class="principle-num">05</div>
+          <h3>Long-Term Relationships</h3>
+          <p>Many of our users have been with FGPS for fifteen years or more. We are not trying to maximise seat count — we are trying to remain the best tool available for the surveyors who need us.</p>
+        </div>
+
+        <div class="principle-card reveal">
+          <div class="principle-num">06</div>
+          <h3>Continuous Improvement</h3>
+          <p>The industry evolves — new acquisition geometries, new formats, new standards. FGPS evolves with it. SeisCloudNAV is the most visible example of a 25-year-old company embracing a fundamentally new approach.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section-cta">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Get to Know Us</h2>
+        <p>The best way to understand FGPS is to talk to us. We are a small team and we take every enquiry personally.</p>
+        <div class="cta-actions">
+          <a href="contact.html" class="btn btn-primary btn-lg">Get in Touch</a>
+          <a href="products.html" class="btn btn-ghost btn-lg">Browse Software</a>
+        </div>
+        <p class="cta-micro">Direct line: <a href="tel:+447793611932">+44 (0) 7793 611 932</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo-mark">FGPS</div>
+          <p>Navigation processing software and services for seismic surveys. Designed by surveyors, for surveyors. Since 2000.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Software</h4>
+          <a href="products.html#seispos">SeisPos</a>
+          <a href="products.html#p1tools">P1Tools</a>
+          <a href="products.html#seisbin">SeisBin</a>
+          <a href="products.html#seisplan">SeisPlan</a>
+          <a href="products.html#spspro">SPSPro</a>
+          <a href="products.html">View All</a>
+        </div>
+        <div class="footer-links">
+          <h4>Services</h4>
+          <a href="services.html#flqc">FLQC</a>
+          <a href="services.html#seiscloudnav">SeisCloudNAV</a>
+          <a href="services.html#processing">Data Processing</a>
+          <a href="services.html#training">Training</a>
+        </div>
+        <div class="footer-links">
+          <h4>Company</h4>
+          <a href="about.html">About FGPS</a>
+          <a href="contact.html">Contact</a>
+          <a href="tel:+447793611932">+44 (0) 7793 611 932</a>
+          <a href="mailto:office@fgps.com">office@fgps.com</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 FGPS. All Rights Reserved. Brighton, United Kingdom.</p>
+        <p>Preview by <a href="claim.html">ReavesHQ</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
