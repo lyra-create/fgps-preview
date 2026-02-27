@@ -1503,10 +1503,6 @@ h1.hero-headline {
 /* ---------- Video Background ---------- */
 .network-bg-video { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; overflow: hidden; }
 .network-bg-video video { width: 100%; height: 100%; object-fit: cover; }
-/* Hide video on mobile — autoplay often blocked, shows ugly play button */
-@media (max-width: 900px) {
-  .network-bg-video { display: none; }
-}
 
 /* Ensure all content sits above the video background */
 .preview-banner,
