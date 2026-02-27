@@ -422,6 +422,7 @@ h1.hero-headline {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 20px rgba(0, 0, 0, 0.5));
 }
 .hero-sub {
   font-size: 19px;
