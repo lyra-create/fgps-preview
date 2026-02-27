@@ -29,7 +29,7 @@
   --white:  #ffffff;
   --text-primary:   #e8edf5;
   --text-secondary: #94a3b8;
-  --text-muted:     #5a6a82;
+  --text-muted:     #8494aa;
 
   --border: rgba(255,255,255,0.07);
   --border-hover: rgba(0, 212, 170, 0.3);
@@ -355,8 +355,8 @@ ul { list-style: none; }
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(6, 11, 22, 0.6) 0%,
-    rgba(10, 15, 28, 0.75) 50%,
+    rgba(6, 11, 22, 0.35) 0%,
+    rgba(10, 15, 28, 0.55) 50%,
     rgba(10, 15, 28, 1) 100%
   );
 }
@@ -434,9 +434,11 @@ h1.hero-headline {
   gap: 0;
   flex-wrap: wrap;
   padding: 24px 28px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid var(--border);
+  background: rgba(10, 15, 28, 0.85);
+  border: 1px solid rgba(255,255,255,0.1);
   border-radius: var(--radius);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   will-change: opacity, transform;
