@@ -600,8 +600,8 @@ h1.hero-headline {
 /* Unique gradient patterns per card */
 .card-seispos .product-card-pattern {
   background:
-    radial-gradient(ellipse 60% 40% at 80% 20%, rgba(0, 212, 170, 0.12) 0%, transparent 70%),
-    linear-gradient(135deg, #0d1a30 0%, #0a1220 100%);
+    radial-gradient(ellipse 60% 40% at 80% 20%, rgba(0, 212, 170, 0.10) 0%, transparent 70%),
+    linear-gradient(180deg, #0d1a30 0%, #0a1220 100%);
 }
 .card-seispos .product-card-pattern::after {
   content: '';
@@ -609,16 +609,16 @@ h1.hero-headline {
   inset: 0;
   background-image: repeating-linear-gradient(
     0deg, transparent, transparent 18px,
-    rgba(0, 212, 170, 0.06) 18px, rgba(0, 212, 170, 0.06) 19px
+    rgba(0, 212, 170, 0.04) 18px, rgba(0, 212, 170, 0.04) 19px
   ), repeating-linear-gradient(
     90deg, transparent, transparent 18px,
-    rgba(0, 212, 170, 0.06) 18px, rgba(0, 212, 170, 0.06) 19px
+    rgba(0, 212, 170, 0.04) 18px, rgba(0, 212, 170, 0.04) 19px
   );
 }
 .card-spspro .product-card-pattern {
   background:
-    radial-gradient(ellipse 50% 60% at 20% 70%, rgba(0, 212, 170, 0.1) 0%, transparent 60%),
-    linear-gradient(160deg, #0f1a2e 0%, #091218 100%);
+    radial-gradient(ellipse 50% 60% at 20% 70%, rgba(0, 212, 170, 0.08) 0%, transparent 60%),
+    linear-gradient(180deg, #0f1a2e 0%, #091218 100%);
 }
 .card-spspro .product-card-pattern::after {
   content: '';
@@ -626,33 +626,33 @@ h1.hero-headline {
   inset: 0;
   background-image: repeating-radial-gradient(
     circle at 0% 100%, transparent 0, transparent 40px,
-    rgba(0, 212, 170, 0.04) 40px, rgba(0, 212, 170, 0.04) 41px
+    rgba(0, 212, 170, 0.03) 40px, rgba(0, 212, 170, 0.03) 41px
   );
 }
 .card-seisbin .product-card-pattern {
   background:
-    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(245, 166, 35, 0.08) 0%, transparent 70%),
-    linear-gradient(200deg, #12180a 0%, #0a0f1c 100%);
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(245, 166, 35, 0.06) 0%, transparent 70%),
+    linear-gradient(180deg, #12180a 0%, #0a0f1c 100%);
 }
 .card-seisbin .product-card-pattern::after {
   content: '';
   position: absolute;
   inset: 0;
   background-image: repeating-linear-gradient(
-    45deg, transparent, transparent 20px,
-    rgba(245, 166, 35, 0.04) 20px, rgba(245, 166, 35, 0.04) 21px
+    90deg, transparent, transparent 20px,
+    rgba(245, 166, 35, 0.03) 20px, rgba(245, 166, 35, 0.03) 21px
   );
 }
 .card-cloud .product-card-pattern {
   background:
-    radial-gradient(ellipse 80% 80% at 50% 50%, rgba(0, 212, 170, 0.08) 0%, transparent 70%),
-    linear-gradient(135deg, #081422 0%, #0a0f1c 100%);
+    radial-gradient(ellipse 80% 80% at 50% 50%, rgba(0, 212, 170, 0.06) 0%, transparent 70%),
+    linear-gradient(180deg, #081422 0%, #0a0f1c 100%);
 }
 .card-cloud .product-card-pattern::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 70% 50%, rgba(0, 212, 170, 0.06) 0%, transparent 50%);
+  background: radial-gradient(circle at 70% 50%, rgba(0, 212, 170, 0.04) 0%, transparent 50%);
 }
 
 .product-showcase-label {
@@ -792,20 +792,21 @@ h1.hero-headline {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 16px;
-  margin-bottom: 64px;
+  gap: 12px;
+  margin-bottom: 48px;
 }
 .trust-badge {
-  padding: 12px 24px;
-  border: 1px solid var(--border);
+  padding: 10px 20px;
+  border: 1px solid rgba(255,255,255,0.15);
   border-radius: 8px;
-  background: rgba(255,255,255,0.03);
+  background: rgba(255,255,255,0.06);
   font-weight: 600;
-  font-size: 15px;
-  color: var(--text-secondary);
+  font-size: 14px;
+  color: var(--white);
+  letter-spacing: 0.3px;
   transition: all var(--transition);
 }
-.trust-badge:hover { border-color: var(--teal-border); color: var(--white); background: var(--teal-glow); }
+.trust-badge:hover { border-color: var(--teal-border); color: var(--teal); background: var(--teal-glow); }
 .trust-quote-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
