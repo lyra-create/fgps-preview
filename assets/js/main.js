@@ -1,18 +1,20 @@
 /* ============================================
    FGPS — Premium Rebuild
    GSAP + ScrollTrigger Animations
+   Compass Node Scroll Experience v2
    ============================================ */
 
 (function () {
   'use strict';
 
-  const hasGSAP = typeof gsap !== 'undefined';
-  const hasScrollTrigger = typeof ScrollTrigger !== 'undefined';
-  const prefersReducedMotion =
+  var hasGSAP = typeof gsap !== 'undefined';
+  var hasScrollTrigger = typeof ScrollTrigger !== 'undefined';
+  var prefersReducedMotion =
     typeof window.matchMedia === 'function' &&
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  const cleanupTasks = [];
+  var cleanupTasks = [];
+  var isMobile = window.innerWidth <= 768;
 
   if (hasGSAP && hasScrollTrigger) {
     gsap.registerPlugin(ScrollTrigger);
@@ -45,15 +47,16 @@
     el.style.transform = 'none';
   }
 
+  /* ─── Navigation ─────────────────────────────── */
   function initNav() {
-    const navbar = document.getElementById('navbar');
+    var navbar = document.getElementById('navbar');
     if (!navbar) return;
 
-    const toggle = document.getElementById('navToggle');
-    const links = document.getElementById('navLinks');
+    var toggle = document.getElementById('navToggle');
+    var links = document.getElementById('navLinks');
 
     if (toggle && links) {
-      const onToggle = function () {
+      var onToggle = function () {
         links.classList.toggle('open');
         toggle.classList.toggle('open');
         document.body.style.overflow = links.classList.contains('open') ? 'hidden' : '';
@@ -65,7 +68,7 @@
       });
 
       links.querySelectorAll('a').forEach(function (a) {
-        const onClick = function () {
+        var onClick = function () {
           links.classList.remove('open');
           toggle.classList.remove('open');
           document.body.style.overflow = '';
@@ -77,16 +80,16 @@
       });
     }
 
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    var currentPage = window.location.pathname.split('/').pop() || 'index.html';
     navbar.querySelectorAll('.nav-links a').forEach(function (a) {
-      const href = a.getAttribute('href');
+      var href = a.getAttribute('href');
       if (href && href.split('#')[0] === currentPage) {
         a.classList.add('active');
       }
     });
 
     if (hasScrollTrigger && !prefersReducedMotion) {
-      const navTrigger = ScrollTrigger.create({
+      var navTrigger = ScrollTrigger.create({
         start: 44,
         end: 99999,
         toggleClass: { targets: navbar, className: 'scrolled' }
@@ -95,7 +98,7 @@
         navTrigger.kill();
       });
     } else {
-      const onScroll = function () {
+      var onScroll = function () {
         if (window.scrollY > 40) navbar.classList.add('scrolled');
         else navbar.classList.remove('scrolled');
       };
@@ -109,17 +112,18 @@
     }
   }
 
+  /* ─── Hero Page Load Animation ─────────────────── */
   function initPageLoad() {
     if (!hasGSAP || prefersReducedMotion) return;
 
-    const badge = document.querySelector('.hero-badge');
-    const headline = document.querySelector('h1.hero-headline');
-    const subtext = document.querySelector('.hero-sub');
-    const actions = document.querySelector('.hero-actions');
-    const stats = document.querySelector('.hero-stats');
+    var badge = document.querySelector('.hero-badge');
+    var headline = document.querySelector('h1.hero-headline');
+    var subtext = document.querySelector('.hero-sub');
+    var actions = document.querySelector('.hero-actions');
+    var stats = document.querySelector('.hero-stats');
 
     if (badge || headline) {
-      const tl = gsap.timeline({ delay: 0.1, defaults: { ease: 'power2.out' } });
+      var tl = gsap.timeline({ delay: 0.1, defaults: { ease: 'power2.out' } });
 
       if (badge) tl.from(badge, { opacity: 0, y: 22, duration: 0.6 });
       if (headline) tl.from(headline, { opacity: 0, y: 30, duration: 0.75 }, '-=0.34');
@@ -128,9 +132,9 @@
       if (stats) tl.from(stats, { opacity: 0, y: 18, duration: 0.54 }, '-=0.3');
     }
 
-    const pageHero = document.querySelector('.page-hero, .about-hero, .claim-hero');
+    var pageHero = document.querySelector('.page-hero, .about-hero, .claim-hero');
     if (pageHero && !badge) {
-      const children = pageHero.querySelectorAll('.section-label, h1, p, .btn');
+      var children = pageHero.querySelectorAll('.section-label, h1, p, .btn');
       gsap.from(children, {
         opacity: 0,
         y: 24,
@@ -142,10 +146,11 @@
     }
   }
 
+  /* ─── Hero Parallax ─────────────────────────────── */
   function initHeroParallax() {
     if (!hasGSAP || prefersReducedMotion) return;
 
-    const heroBgImg = document.querySelector('.hero-bg img');
+    var heroBgImg = document.querySelector('.hero-bg img');
     if (!heroBgImg) return;
 
     gsap.to(heroBgImg, {
@@ -169,22 +174,23 @@
     });
   }
 
+  /* ─── Stat Counters ─────────────────────────────── */
   function initCounters() {
-    const statNums = document.querySelectorAll('.stat-number[data-target]');
+    var statNums = document.querySelectorAll('.stat-number[data-target]');
     if (!statNums.length) return;
 
     statNums.forEach(function (el) {
-      const target = parseFloat(el.getAttribute('data-target') || '0');
-      const suffix = el.getAttribute('data-suffix') || '';
-      const isFloat = el.getAttribute('data-float') === 'true';
+      var target = parseFloat(el.getAttribute('data-target') || '0');
+      var suffix = el.getAttribute('data-suffix') || '';
+      var isFloat = el.getAttribute('data-float') === 'true';
 
       if (prefersReducedMotion || !hasGSAP || !hasScrollTrigger) {
         el.textContent = (isFloat ? target.toFixed(1) : Math.round(target)) + suffix;
         return;
       }
 
-      const counterProxy = { value: 0 };
-      const trigger = ScrollTrigger.create({
+      var counterProxy = { value: 0 };
+      var trigger = ScrollTrigger.create({
         trigger: el,
         start: 'top 85%',
         once: true,
@@ -208,8 +214,9 @@
     });
   }
 
+  /* ─── Reveal animations (other pages) ───────────── */
   function initReveal() {
-    const revealItems = document.querySelectorAll('.reveal');
+    var revealItems = document.querySelectorAll('.reveal');
 
     if (prefersReducedMotion || !hasGSAP || !hasScrollTrigger) {
       revealItems.forEach(setVisible);
@@ -253,7 +260,7 @@
       });
     }
 
-    // Product cards: scale from 0.92 plus fade (no rotation)
+    // Product cards: scale from 0.92 plus fade
     var productsGrid = document.querySelector('.products-grid');
     if (productsGrid && productsGrid.children.length) {
       gsap.from(productsGrid.children, {
@@ -287,7 +294,7 @@
       });
     }
 
-    // SeisCloudNAV spotlight: text slides from left, image from right
+    // SeisCloudNAV spotlight
     var spotlightCopy = document.querySelector('.spotlight-copy');
     var spotlightVisual = document.querySelector('.spotlight-visual');
     if (spotlightCopy) {
@@ -317,7 +324,7 @@
       });
     }
 
-    // Stats: each stat scales up from 0 with spring-like bounce
+    // Stats: each stat scales up
     var statItems = document.querySelectorAll('.hero-stats .stat');
     if (statItems.length) {
       gsap.from(statItems, {
@@ -330,7 +337,7 @@
       });
     }
 
-    // Section headers: clip-path wipe from left
+    // Section headers: clip-path wipe
     document.querySelectorAll('.section-header h2').forEach(function (el) {
       gsap.from(el, {
         clipPath: 'inset(0 100% 0 0)',
@@ -345,7 +352,7 @@
       });
     });
 
-    // Section header labels and paragraphs: fade + slide
+    // Section header labels and paragraphs
     document.querySelectorAll('.section-header .section-label, .section-header p').forEach(function (el) {
       gsap.from(el, {
         opacity: 0,
@@ -360,8 +367,7 @@
       });
     });
 
-    // Trust quote grid: use gsap.to (start visible) to avoid cards
-    // staying invisible when gsap.from fails to fire in some browsers
+    // Trust quote grid
     var trustQuoteGrid = document.querySelector('.trust-quote-grid');
     if (trustQuoteGrid && trustQuoteGrid.children.length) {
       Array.from(trustQuoteGrid.children).forEach(function (child) {
@@ -382,7 +388,7 @@
       });
     }
 
-    // Remaining stagger selectors (excluding ones handled above)
+    // Remaining stagger selectors
     var remainingSelectors = [
       '.product-guide-grid',
       '.products-list',
@@ -426,57 +432,314 @@
     }
   }
 
-  function initSpotlight() {
-    // Spotlight copy and visual are handled in initReveal with enhanced animations.
-    // No additional animation needed here.
+  /* ============================================
+     COMPASS NODE TRAIL — Scroll Animations
+     ============================================ */
+
+  function initNodeTrail() {
+    var trailSection = document.querySelector('.node-trail');
+    if (!trailSection) return;
+
+    var nodes = trailSection.querySelectorAll('.trail-node');
+    if (!nodes.length) return;
+
+    // On mobile: simple fade-in, cards already visible via CSS
+    if (isMobile) {
+      initNodeTrailMobile(nodes);
+      return;
+    }
+
+    // Desktop: GSAP scroll-driven expand/contract
+    if (!hasGSAP || !hasScrollTrigger || prefersReducedMotion) {
+      // Fallback: show all cards immediately
+      nodes.forEach(function (node) {
+        var card = node.querySelector('.node-card');
+        if (card) {
+          card.style.opacity = '1';
+          card.style.transform = 'none';
+        }
+      });
+      return;
+    }
+
+    // Draw connecting lines between nodes
+    drawTrailConnections(trailSection, nodes);
+
+    // Animate each node card expand/contract on scroll
+    nodes.forEach(function (node, i) {
+      var card = node.querySelector('.node-card');
+      var dot = node.querySelector('.node-dot');
+      if (!card) return;
+
+      // Create scroll-driven animation for this node
+      // Node enters: card expands. Node exits: card contracts.
+      var tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: node,
+          start: 'top 80%',
+          end: 'bottom 20%',
+          scrub: 0.5,
+          // NO pin: true
+        }
+      });
+
+      // Expand: opacity 0 → 1, scale 0.85 → 1
+      tl.to(card, {
+        opacity: 1,
+        scale: 1,
+        duration: 0.4,
+        ease: 'power2.out'
+      }, 0);
+
+      // Glow the dot
+      tl.to(dot, {
+        boxShadow: '0 0 30px rgba(0, 212, 170, 0.4), inset 0 0 16px rgba(0, 212, 170, 0.1)',
+        duration: 0.3
+      }, 0);
+
+      // Contract: at end of scroll range, fade card back
+      tl.to(card, {
+        opacity: 0,
+        scale: 0.85,
+        duration: 0.4,
+        ease: 'power2.in'
+      }, 0.6);
+
+      // Reduce dot glow
+      tl.to(dot, {
+        boxShadow: '0 0 20px rgba(0, 212, 170, 0.15), inset 0 0 12px rgba(0, 212, 170, 0.05)',
+        duration: 0.3
+      }, 0.7);
+
+      addCleanup(function () {
+        if (tl.scrollTrigger) tl.scrollTrigger.kill();
+        tl.kill();
+      });
+    });
+
+    // Mouse parallax on nodes (subtle)
+    initNodeParallax(nodes);
   }
 
-  function initTrustBadges() {
-    // Trust badges are always visible — no GSAP animation.
-    // Previous gsap.from(opacity:0) was hiding badges when ScrollTrigger
-    // failed to fire on mobile viewports.
+  function initNodeTrailMobile(nodes) {
+    if (!hasGSAP) return;
+
+    // Simple fade-in on scroll for mobile
+    nodes.forEach(function (node) {
+      var card = node.querySelector('.node-card');
+      if (!card) return;
+
+      // Cards are already visible via CSS on mobile,
+      // but add a subtle entrance animation
+      if (hasScrollTrigger && !prefersReducedMotion) {
+        gsap.from(node, {
+          opacity: 0,
+          y: 30,
+          duration: 0.6,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: node,
+            start: 'top 90%',
+            once: true
+          }
+        });
+      }
+    });
   }
 
-  function initCardTilt() {
-    // Card hover is now CSS-only (transform + transition in style.css).
-    // JS tilt removed — mouseleave wasn't firing reliably between adjacent
-    // cards, leaving transforms stuck and causing overlap.
+  /* ─── Connecting Lines SVG ──────────────────────── */
+  function drawTrailConnections(trailSection, nodes) {
+    var svg = trailSection.querySelector('.trail-connections');
+    if (!svg || nodes.length < 2) return;
+
+    function updateLines() {
+      // Clear existing
+      svg.innerHTML = '';
+
+      var trailRect = trailSection.getBoundingClientRect();
+
+      for (var i = 0; i < nodes.length - 1; i++) {
+        var dotA = nodes[i].querySelector('.node-dot');
+        var dotB = nodes[i + 1].querySelector('.node-dot');
+        if (!dotA || !dotB) continue;
+
+        var rectA = dotA.getBoundingClientRect();
+        var rectB = dotB.getBoundingClientRect();
+
+        var x1 = rectA.left + rectA.width / 2 - trailRect.left;
+        var y1 = rectA.top + rectA.height / 2 - trailRect.top;
+        var x2 = rectB.left + rectB.width / 2 - trailRect.left;
+        var y2 = rectB.top + rectB.height / 2 - trailRect.top;
+
+        var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute('x1', x1);
+        line.setAttribute('y1', y1);
+        line.setAttribute('x2', x2);
+        line.setAttribute('y2', y2);
+        line.setAttribute('stroke', '#00d4aa');
+        line.setAttribute('stroke-width', '1.5');
+        line.setAttribute('stroke-opacity', '0.2');
+        line.setAttribute('stroke-dasharray', '6 4');
+
+        // Calculate line length for draw-on animation
+        var length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+        line.setAttribute('stroke-dasharray', length);
+        line.setAttribute('stroke-dashoffset', length);
+        line.setAttribute('data-length', length);
+        line.setAttribute('data-index', i);
+
+        svg.appendChild(line);
+      }
+
+      // Set SVG viewBox to match section size
+      svg.setAttribute('viewBox', '0 0 ' + trailSection.offsetWidth + ' ' + trailSection.offsetHeight);
+      svg.style.width = trailSection.offsetWidth + 'px';
+      svg.style.height = trailSection.offsetHeight + 'px';
+
+      // Animate each line segment with ScrollTrigger (draw-on effect)
+      animateConnectionLines(svg, nodes);
+    }
+
+    // Initial draw
+    updateLines();
+
+    // Redraw on resize
+    var resizeTimer;
+    var onResize = function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () {
+        isMobile = window.innerWidth <= 768;
+        if (!isMobile) {
+          // Kill old line triggers and redraw
+          updateLines();
+        }
+      }, 250);
+    };
+    window.addEventListener('resize', onResize);
+    addCleanup(function () {
+      window.removeEventListener('resize', onResize);
+    });
   }
 
+  function animateConnectionLines(svg, nodes) {
+    var lines = svg.querySelectorAll('line');
+
+    lines.forEach(function (line) {
+      var idx = parseInt(line.getAttribute('data-index'), 10);
+      var length = parseFloat(line.getAttribute('data-length'));
+      var triggerNode = nodes[idx];
+
+      if (!triggerNode || !hasGSAP || !hasScrollTrigger) {
+        line.setAttribute('stroke-dashoffset', '0');
+        return;
+      }
+
+      // Animate the line drawing from previous node to next
+      gsap.to(line, {
+        strokeDashoffset: 0,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: triggerNode,
+          start: 'top 70%',
+          end: 'bottom 50%',
+          scrub: 0.5
+        }
+      });
+    });
+  }
+
+  /* ─── Mouse Parallax on Nodes ───────────────────── */
+  function initNodeParallax(nodes) {
+    if (isMobile || prefersReducedMotion) return;
+
+    var onMouseMove = function (e) {
+      var centerX = window.innerWidth / 2;
+      var centerY = window.innerHeight / 2;
+      var moveX = (e.clientX - centerX) / centerX;
+      var moveY = (e.clientY - centerY) / centerY;
+
+      nodes.forEach(function (node) {
+        var dot = node.querySelector('.node-dot');
+        if (!dot) return;
+        gsap.to(dot, {
+          x: moveX * 6,
+          y: moveY * 4,
+          duration: 0.8,
+          ease: 'power2.out'
+        });
+      });
+    };
+
+    document.addEventListener('mousemove', onMouseMove);
+    addCleanup(function () {
+      document.removeEventListener('mousemove', onMouseMove);
+    });
+  }
+
+  /* ─── Reduced Motion Fallback ───────────────────── */
   function initReducedMotionState() {
     if (!prefersReducedMotion) return;
 
     document.querySelectorAll('.reveal').forEach(setVisible);
 
     document.querySelectorAll('.stat-number[data-target]').forEach(function (el) {
-      const target = parseFloat(el.getAttribute('data-target') || '0');
-      const suffix = el.getAttribute('data-suffix') || '';
-      const isFloat = el.getAttribute('data-float') === 'true';
+      var target = parseFloat(el.getAttribute('data-target') || '0');
+      var suffix = el.getAttribute('data-suffix') || '';
+      var isFloat = el.getAttribute('data-float') === 'true';
       el.textContent = (isFloat ? target.toFixed(1) : Math.round(target)) + suffix;
+    });
+
+    // Force all node cards visible
+    document.querySelectorAll('.node-card').forEach(function (card) {
+      card.style.opacity = '1';
+      card.style.transform = 'none';
     });
   }
 
+  /* ─── Video Autoplay (other pages) ────────────────── */
   function initVideoAutoplay() {
     var video = document.querySelector('.network-bg-video video');
     if (!video) return;
-    // Safari requires muted property + attribute and playsinline for autoplay
     video.muted = true;
     video.setAttribute('muted', '');
     video.setAttribute('playsinline', '');
     video.setAttribute('webkit-playsinline', '');
-    // Safari sometimes ignores autoplay unless we re-trigger after load
     video.load();
     video.play().catch(function () {
-      // Retry once after a short delay — Safari may need the load() to settle
       setTimeout(function () {
         video.play().catch(function () {
-          // Autoplay truly blocked — hide the video so no play button shows
           video.style.display = 'none';
         });
       }, 500);
     });
   }
 
+  /* ─── Safety Net ─────────────────────────────────── */
+  function initSafetyNet() {
+    setTimeout(function () {
+      // Force-show any elements that might be stuck invisible
+      document.querySelectorAll(
+        '.products-grid > *, .trust-quote-grid > *, .why-grid > *, .product-guide-grid > *, .products-list > *, .principles-grid > *, .team-grid > *'
+      ).forEach(function (el) {
+        var style = window.getComputedStyle(el);
+        if (parseFloat(style.opacity) < 0.1) {
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+        }
+      });
+
+      // Force-show node cards that failed to animate
+      document.querySelectorAll('.node-card').forEach(function (card) {
+        var style = window.getComputedStyle(card);
+        if (parseFloat(style.opacity) < 0.1) {
+          card.style.opacity = '1';
+          card.style.transform = 'none';
+        }
+      });
+    }, 5000);
+  }
+
+  /* ─── Init ───────────────────────────────────────── */
   ready(function () {
     // Mark GSAP as loaded so CSS fallback animations don't fire
     if (hasGSAP) document.documentElement.classList.add('gsap-loaded');
@@ -487,24 +750,9 @@
     initHeroParallax();
     initCounters();
     initReveal();
-    initSpotlight();
-    initTrustBadges();
-    initCardTilt();
+    initNodeTrail();
     initVideoAutoplay();
-
-    // Safety net: if any GSAP from() animations leave elements invisible
-    // after 4s (e.g. Safari ScrollTrigger timing issues), force them visible.
-    setTimeout(function () {
-      document.querySelectorAll(
-        '.products-grid > *, .trust-quote-grid > *, .why-grid > *, .product-guide-grid > *, .products-list > *, .principles-grid > *, .team-grid > *'
-      ).forEach(function (el) {
-        var style = window.getComputedStyle(el);
-        if (parseFloat(style.opacity) < 0.1) {
-          el.style.opacity = '1';
-          el.style.transform = 'none';
-        }
-      });
-    }, 4000);
+    initSafetyNet();
   });
 
   window.addEventListener('pagehide', cleanupAnimations, { once: true });
