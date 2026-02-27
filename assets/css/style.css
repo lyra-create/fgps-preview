@@ -131,7 +131,6 @@ ul { list-style: none; }
   z-index: 1000;
   padding: 22px 0;
   transition: padding var(--transition), background var(--transition), box-shadow var(--transition), backdrop-filter var(--transition);
-  will-change: padding, background;
 }
 .navbar.scrolled {
   padding: 12px 0;
@@ -220,16 +219,16 @@ ul { list-style: none; }
   .nav-links {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
     background: var(--navy-900);
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 8px;
-    z-index: 999;
+    z-index: 9998;
   }
   .nav-links.open { display: flex; }
   .nav-links li a { font-size: 18px; padding: 12px 32px; }
