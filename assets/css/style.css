@@ -213,8 +213,13 @@ ul { list-style: none; }
 @media (max-width: 900px) {
   .nav-toggle {
     display: flex;
-    position: relative;
-    z-index: 1001;
+    position: fixed;
+    top: 24px;
+    right: 20px;
+    z-index: 10001;
+  }
+  .navbar.scrolled .nav-toggle {
+    top: 14px;
   }
   .nav-links {
     display: none;
@@ -228,7 +233,7 @@ ul { list-style: none; }
     justify-content: center;
     align-items: center;
     gap: 8px;
-    z-index: 999;
+    z-index: 10000;
   }
   .nav-links.open { display: flex; }
   .nav-links li a { font-size: 18px; padding: 12px 32px; }
