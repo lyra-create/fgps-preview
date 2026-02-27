@@ -253,7 +253,7 @@
       });
     }
 
-    // Product cards: scale from 0.85 with slight rotation, plus fade
+    // Product cards: scale from 0.92 plus fade (no rotation)
     var productsGrid = document.querySelector('.products-grid');
     if (productsGrid && productsGrid.children.length) {
       gsap.from(productsGrid.children, {
@@ -360,9 +360,30 @@
       });
     });
 
+    // Trust quote grid: use gsap.to (start visible) to avoid cards
+    // staying invisible when gsap.from fails to fire in some browsers
+    var trustQuoteGrid = document.querySelector('.trust-quote-grid');
+    if (trustQuoteGrid && trustQuoteGrid.children.length) {
+      Array.from(trustQuoteGrid.children).forEach(function (child) {
+        child.style.opacity = '0';
+        child.style.transform = 'translateY(32px)';
+      });
+      gsap.to(trustQuoteGrid.children, {
+        opacity: 1,
+        y: 0,
+        stagger: 0.1,
+        duration: 0.66,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: trustQuoteGrid,
+          start: 'top 85%',
+          once: true
+        }
+      });
+    }
+
     // Remaining stagger selectors (excluding ones handled above)
     var remainingSelectors = [
-      '.trust-quote-grid',
       '.product-guide-grid',
       '.products-list',
       '.principles-grid',
@@ -438,12 +459,21 @@
   function initVideoAutoplay() {
     var video = document.querySelector('.network-bg-video video');
     if (!video) return;
+    // Safari requires muted property + attribute and playsinline for autoplay
     video.muted = true;
     video.setAttribute('muted', '');
     video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', '');
+    // Safari sometimes ignores autoplay unless we re-trigger after load
+    video.load();
     video.play().catch(function () {
-      // Autoplay blocked — hide the video element so no play button shows
-      video.style.display = 'none';
+      // Retry once after a short delay — Safari may need the load() to settle
+      setTimeout(function () {
+        video.play().catch(function () {
+          // Autoplay truly blocked — hide the video so no play button shows
+          video.style.display = 'none';
+        });
+      }, 500);
     });
   }
 
