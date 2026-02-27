@@ -418,36 +418,9 @@
   }
 
   function initCardTilt() {
-    if (prefersReducedMotion) return;
-
-    const cards = document.querySelectorAll('.why-card, .product-detail-card, .team-card');
-
-    cards.forEach(function (card) {
-      const onMove = function (event) {
-        const rect = card.getBoundingClientRect();
-        const x = (event.clientX - rect.left) / rect.width - 0.5;
-        const y = (event.clientY - rect.top) / rect.height - 0.5;
-
-        card.style.transform = [
-          'translateY(-3px)',
-          'perspective(900px)',
-          'rotateX(' + (-y * 5) + 'deg)',
-          'rotateY(' + (x * 5) + 'deg)'
-        ].join(' ');
-      };
-
-      const onLeave = function () {
-        card.style.transform = '';
-      };
-
-      card.addEventListener('mousemove', onMove);
-      card.addEventListener('mouseleave', onLeave);
-
-      addCleanup(function () {
-        card.removeEventListener('mousemove', onMove);
-        card.removeEventListener('mouseleave', onLeave);
-      });
-    });
+    // Card hover is now CSS-only (transform + transition in style.css).
+    // JS tilt removed — mouseleave wasn't firing reliably between adjacent
+    // cards, leaving transforms stuck and causing overlap.
   }
 
   function initReducedMotionState() {

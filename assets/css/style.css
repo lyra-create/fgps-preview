@@ -852,7 +852,9 @@ h1.hero-headline {
 .why-card:hover {
   border-color: var(--teal-border);
   box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-  transform: translateY(-3px);
+  transform: translateY(-4px);
+  z-index: 2;
+  position: relative;
 }
 .why-icon {
   flex-shrink: 0;
@@ -1047,13 +1049,14 @@ h1.hero-headline {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 36px;
-  will-change: opacity, transform;
   transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
 }
 .product-detail-card:hover {
   border-color: var(--teal-border);
-  transform: translateY(-3px) scale(1.02);
+  transform: translateY(-4px);
   box-shadow: 0 14px 44px rgba(0,0,0,0.34);
+  z-index: 2;
+  position: relative;
 }
 .product-name-tag {
   font-family: var(--font-mono);
@@ -1248,7 +1251,7 @@ h1.hero-headline {
   transition: border-color var(--transition), transform var(--transition);
   will-change: opacity, transform;
 }
-.team-card:hover { border-color: var(--teal-border); transform: translateY(-4px); }
+.team-card:hover { border-color: var(--teal-border); transform: translateY(-4px); z-index: 2; position: relative; }
 .team-avatar {
   width: 80px;
   height: 80px;
