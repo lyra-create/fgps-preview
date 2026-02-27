@@ -354,12 +354,19 @@ ul { list-style: none; }
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(6, 11, 22, 0.1) 0%,
-    rgba(10, 15, 28, 0.3) 45%,
-    rgba(16, 24, 40, 0.92) 100%
-  );
+  background:
+    linear-gradient(
+      to right,
+      rgba(6, 11, 22, 0.55) 0%,
+      rgba(6, 11, 22, 0.3) 55%,
+      rgba(6, 11, 22, 0.05) 100%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(6, 11, 22, 0.1) 0%,
+      rgba(10, 15, 28, 0.25) 45%,
+      rgba(16, 24, 40, 0.92) 100%
+    );
 }
 .hero-grid-overlay {
   position: absolute;
@@ -387,9 +394,11 @@ ul { list-style: none; }
   color: var(--teal);
   margin-bottom: 28px;
   padding: 8px 16px;
-  border: 1px solid var(--teal-border);
+  border: 1px solid rgba(0, 212, 170, 0.3);
   border-radius: 24px;
-  background: rgba(0, 212, 170, 0.07);
+  background: rgba(10, 15, 28, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   will-change: opacity, transform;
 }
 .hero-badge-dot {
@@ -405,6 +414,7 @@ h1.hero-headline {
   letter-spacing: -1.5px;
   line-height: 1.06;
   margin-bottom: 24px;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.4);
   will-change: opacity, transform;
 }
 .text-gradient {
@@ -416,10 +426,11 @@ h1.hero-headline {
 .hero-sub {
   font-size: 19px;
   line-height: 1.65;
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.92);
   margin-bottom: 40px;
   max-width: 620px;
   will-change: opacity, transform;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 .hero-actions {
   display: flex;
