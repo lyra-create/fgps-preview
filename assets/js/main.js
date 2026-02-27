@@ -258,8 +258,7 @@
     if (productsGrid && productsGrid.children.length) {
       gsap.from(productsGrid.children, {
         opacity: 0,
-        scale: 0.85,
-        rotation: -2,
+        scale: 0.92,
         stagger: 0.1,
         duration: 0.72,
         ease: 'power3.out',
@@ -462,6 +461,20 @@
     initTrustBadges();
     initCardTilt();
     initVideoAutoplay();
+
+    // Safety net: if any GSAP from() animations leave elements invisible
+    // after 4s (e.g. Safari ScrollTrigger timing issues), force them visible.
+    setTimeout(function () {
+      document.querySelectorAll(
+        '.products-grid > *, .trust-quote-grid > *, .why-grid > *, .product-guide-grid > *, .products-list > *, .principles-grid > *, .team-grid > *'
+      ).forEach(function (el) {
+        var style = window.getComputedStyle(el);
+        if (parseFloat(style.opacity) < 0.1) {
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+        }
+      });
+    }, 4000);
   });
 
   window.addEventListener('pagehide', cleanupAnimations, { once: true });
