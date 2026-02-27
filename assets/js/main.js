@@ -119,21 +119,25 @@
     const stats = document.querySelector('.hero-stats');
 
     if (badge || headline) {
+      var heroEls = [badge, headline, subtext, actions, stats].filter(Boolean);
+      heroEls.forEach(function (el) { gsap.set(el, { opacity: 0, y: 22 }); });
+
       const tl = gsap.timeline({ delay: 0.1, defaults: { ease: 'power2.out' } });
 
-      if (badge) tl.from(badge, { opacity: 0, y: 22, duration: 0.6 });
-      if (headline) tl.from(headline, { opacity: 0, y: 30, duration: 0.75 }, '-=0.34');
-      if (subtext) tl.from(subtext, { opacity: 0, y: 24, duration: 0.62 }, '-=0.42');
-      if (actions) tl.from(actions, { opacity: 0, y: 18, duration: 0.54 }, '-=0.35');
-      if (stats) tl.from(stats, { opacity: 0, y: 18, duration: 0.54 }, '-=0.3');
+      if (badge) tl.to(badge, { opacity: 1, y: 0, duration: 0.6 });
+      if (headline) tl.to(headline, { opacity: 1, y: 0, duration: 0.75 }, '-=0.34');
+      if (subtext) tl.to(subtext, { opacity: 1, y: 0, duration: 0.62 }, '-=0.42');
+      if (actions) tl.to(actions, { opacity: 1, y: 0, duration: 0.54 }, '-=0.35');
+      if (stats) tl.to(stats, { opacity: 1, y: 0, duration: 0.54 }, '-=0.3');
     }
 
     const pageHero = document.querySelector('.page-hero, .about-hero, .claim-hero');
     if (pageHero && !badge) {
       const children = pageHero.querySelectorAll('.section-label, h1, p, .btn');
-      gsap.from(children, {
-        opacity: 0,
-        y: 24,
+      gsap.set(children, { opacity: 0, y: 24 });
+      gsap.to(children, {
+        opacity: 1,
+        y: 0,
         stagger: 0.12,
         duration: 0.68,
         ease: 'power2.out',
@@ -238,9 +242,10 @@
     if (problemGrid && problemGrid.children.length) {
       Array.from(problemGrid.children).forEach(function (card, i) {
         var fromX = (i % 2 === 0) ? -60 : 60;
-        gsap.from(card, {
-          opacity: 0,
-          x: fromX,
+        gsap.set(card, { opacity: 0, x: fromX });
+        gsap.to(card, {
+          opacity: 1,
+          x: 0,
           duration: 0.75,
           ease: 'power3.out',
           scrollTrigger: {
@@ -256,9 +261,10 @@
     // Product cards: scale from 0.92 plus fade (no rotation)
     var productsGrid = document.querySelector('.products-grid');
     if (productsGrid && productsGrid.children.length) {
-      gsap.from(productsGrid.children, {
-        opacity: 0,
-        scale: 0.92,
+      gsap.set(productsGrid.children, { opacity: 0, scale: 0.92 });
+      gsap.to(productsGrid.children, {
+        opacity: 1,
+        scale: 1,
         stagger: 0.1,
         duration: 0.72,
         ease: 'power3.out',
@@ -273,9 +279,10 @@
     // Why FGPS cards: stagger with bounce ease
     var whyGrid = document.querySelector('.why-grid');
     if (whyGrid && whyGrid.children.length) {
-      gsap.from(whyGrid.children, {
-        opacity: 0,
-        y: 40,
+      gsap.set(whyGrid.children, { opacity: 0, y: 40 });
+      gsap.to(whyGrid.children, {
+        opacity: 1,
+        y: 0,
         stagger: 0.13,
         duration: 0.82,
         ease: 'back.out(1.4)',
@@ -291,9 +298,10 @@
     var spotlightCopy = document.querySelector('.spotlight-copy');
     var spotlightVisual = document.querySelector('.spotlight-visual');
     if (spotlightCopy) {
-      gsap.from(spotlightCopy, {
-        opacity: 0,
-        x: -60,
+      gsap.set(spotlightCopy, { opacity: 0, x: -60 });
+      gsap.to(spotlightCopy, {
+        opacity: 1,
+        x: 0,
         duration: 0.9,
         ease: 'power3.out',
         scrollTrigger: {
@@ -304,9 +312,10 @@
       });
     }
     if (spotlightVisual) {
-      gsap.from(spotlightVisual, {
-        opacity: 0,
-        x: 60,
+      gsap.set(spotlightVisual, { opacity: 0, x: 60 });
+      gsap.to(spotlightVisual, {
+        opacity: 1,
+        x: 0,
         duration: 0.9,
         ease: 'power3.out',
         scrollTrigger: {
@@ -320,9 +329,10 @@
     // Stats: each stat scales up from 0 with spring-like bounce
     var statItems = document.querySelectorAll('.hero-stats .stat');
     if (statItems.length) {
-      gsap.from(statItems, {
-        opacity: 0,
-        scale: 0,
+      gsap.set(statItems, { opacity: 0, scale: 0 });
+      gsap.to(statItems, {
+        opacity: 1,
+        scale: 1,
         stagger: 0.1,
         duration: 0.7,
         ease: 'back.out(1.7)',
@@ -332,9 +342,10 @@
 
     // Section headers: clip-path wipe from left
     document.querySelectorAll('.section-header h2').forEach(function (el) {
-      gsap.from(el, {
-        clipPath: 'inset(0 100% 0 0)',
-        opacity: 0,
+      gsap.set(el, { clipPath: 'inset(0 100% 0 0)', opacity: 0 });
+      gsap.to(el, {
+        clipPath: 'inset(0 0% 0 0)',
+        opacity: 1,
         duration: 0.9,
         ease: 'power3.out',
         scrollTrigger: {
@@ -347,9 +358,10 @@
 
     // Section header labels and paragraphs: fade + slide
     document.querySelectorAll('.section-header .section-label, .section-header p').forEach(function (el) {
-      gsap.from(el, {
-        opacity: 0,
-        y: 18,
+      gsap.set(el, { opacity: 0, y: 18 });
+      gsap.to(el, {
+        opacity: 1,
+        y: 0,
         duration: 0.66,
         ease: 'power2.out',
         scrollTrigger: {
@@ -395,9 +407,10 @@
       var parent = document.querySelector(selector);
       if (!parent || !parent.children.length) return;
 
-      gsap.from(parent.children, {
-        opacity: 0,
-        y: 32,
+      gsap.set(parent.children, { opacity: 0, y: 32 });
+      gsap.to(parent.children, {
+        opacity: 1,
+        y: 0,
         stagger: 0.1,
         duration: 0.66,
         ease: 'power2.out',
@@ -411,9 +424,10 @@
 
     var ctaContent = document.querySelector('.cta-content');
     if (ctaContent) {
-      gsap.from(ctaContent.children, {
-        opacity: 0,
-        y: 24,
+      gsap.set(ctaContent.children, { opacity: 0, y: 24 });
+      gsap.to(ctaContent.children, {
+        opacity: 1,
+        y: 0,
         stagger: 0.1,
         duration: 0.66,
         ease: 'power2.out',
@@ -433,7 +447,7 @@
 
   function initTrustBadges() {
     // Trust badges are always visible — no GSAP animation.
-    // Previous gsap.from(opacity:0) was hiding badges when ScrollTrigger
+    // Previous from-based animation was hiding badges when ScrollTrigger
     // failed to fire on mobile viewports.
   }
 
