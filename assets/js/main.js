@@ -412,23 +412,9 @@
   }
 
   function initTrustBadges() {
-    if (!hasGSAP || !hasScrollTrigger || prefersReducedMotion) return;
-
-    const badges = document.querySelectorAll('.trust-badge');
-    if (!badges.length) return;
-
-    gsap.from(badges, {
-      opacity: 0,
-      y: 16,
-      stagger: 0.08,
-      duration: 0.5,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: badges[0].parentElement,
-        start: 'top 88%',
-        once: true
-      }
-    });
+    // Trust badges are always visible — no GSAP animation.
+    // Previous gsap.from(opacity:0) was hiding badges when ScrollTrigger
+    // failed to fire on mobile viewports.
   }
 
   function initCardTilt() {
@@ -477,7 +463,22 @@
     });
   }
 
+  function initVideoAutoplay() {
+    var video = document.querySelector('.network-bg-video video');
+    if (!video) return;
+    video.muted = true;
+    video.setAttribute('muted', '');
+    video.setAttribute('playsinline', '');
+    video.play().catch(function () {
+      // Autoplay blocked — hide the video element so no play button shows
+      video.style.display = 'none';
+    });
+  }
+
   ready(function () {
+    // Mark GSAP as loaded so CSS fallback animations don't fire
+    if (hasGSAP) document.documentElement.classList.add('gsap-loaded');
+
     initReducedMotionState();
     initNav();
     initPageLoad();
@@ -487,6 +488,7 @@
     initSpotlight();
     initTrustBadges();
     initCardTilt();
+    initVideoAutoplay();
   });
 
   window.addEventListener('pagehide', cleanupAnimations, { once: true });

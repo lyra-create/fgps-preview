@@ -603,56 +603,25 @@ h1.hero-headline {
     radial-gradient(ellipse 60% 40% at 80% 20%, rgba(0, 212, 170, 0.10) 0%, transparent 70%),
     linear-gradient(180deg, #0d1a30 0%, #0a1220 100%);
 }
-.card-seispos .product-card-pattern::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: repeating-linear-gradient(
-    0deg, transparent, transparent 18px,
-    rgba(0, 212, 170, 0.04) 18px, rgba(0, 212, 170, 0.04) 19px
-  ), repeating-linear-gradient(
-    90deg, transparent, transparent 18px,
-    rgba(0, 212, 170, 0.04) 18px, rgba(0, 212, 170, 0.04) 19px
-  );
-}
+.card-seispos .product-card-pattern::after { display: none; }
 .card-spspro .product-card-pattern {
   background:
     radial-gradient(ellipse 50% 60% at 20% 70%, rgba(0, 212, 170, 0.08) 0%, transparent 60%),
     linear-gradient(180deg, #0f1a2e 0%, #091218 100%);
 }
-.card-spspro .product-card-pattern::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: repeating-radial-gradient(
-    circle at 0% 100%, transparent 0, transparent 40px,
-    rgba(0, 212, 170, 0.03) 40px, rgba(0, 212, 170, 0.03) 41px
-  );
-}
+.card-spspro .product-card-pattern::after { display: none; }
 .card-seisbin .product-card-pattern {
   background:
     radial-gradient(ellipse 70% 50% at 50% 0%, rgba(245, 166, 35, 0.06) 0%, transparent 70%),
     linear-gradient(180deg, #12180a 0%, #0a0f1c 100%);
 }
-.card-seisbin .product-card-pattern::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: repeating-linear-gradient(
-    90deg, transparent, transparent 20px,
-    rgba(245, 166, 35, 0.03) 20px, rgba(245, 166, 35, 0.03) 21px
-  );
-}
+.card-seisbin .product-card-pattern::after { display: none; }
 .card-cloud .product-card-pattern {
   background:
     radial-gradient(ellipse 80% 80% at 50% 50%, rgba(0, 212, 170, 0.06) 0%, transparent 70%),
     linear-gradient(180deg, #081422 0%, #0a0f1c 100%);
 }
-.card-cloud .product-card-pattern::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 70% 50%, rgba(0, 212, 170, 0.04) 0%, transparent 50%);
+.card-cloud .product-card-pattern::after { display: none;
 }
 
 .product-showcase-label {
@@ -1460,6 +1429,18 @@ h1.hero-headline {
   transform: translateY(30px);
   will-change: opacity, transform;
 }
+/* Fallback: if GSAP fails or hasn't loaded after 3s, show content anyway */
+@keyframes reveal-fallback {
+  to { opacity: 1; transform: none; }
+}
+.reveal {
+  animation: reveal-fallback 0.5s ease forwards;
+  animation-delay: 3s;
+}
+/* GSAP overrides this animation when it loads */
+.gsap-loaded .reveal {
+  animation: none;
+}
 
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -1519,6 +1500,10 @@ h1.hero-headline {
 /* ---------- Video Background ---------- */
 .network-bg-video { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; overflow: hidden; }
 .network-bg-video video { width: 100%; height: 100%; object-fit: cover; }
+/* Hide video on mobile — autoplay often blocked, shows ugly play button */
+@media (max-width: 900px) {
+  .network-bg-video { display: none; }
+}
 
 /* Ensure all content sits above the video background */
 .preview-banner,
