@@ -5,12 +5,12 @@
 
 /* ---------- Variables ---------- */
 :root {
-  --navy-950: #060b16;
-  --navy-900: #0a0f1c;
-  --navy-800: #111b30;
-  --navy-700: #162240;
-  --navy-600: #1c2d50;
-  --navy-500: #243862;
+  --navy-950: #080d18;
+  --navy-900: #101828;
+  --navy-800: #0d1526;
+  --navy-700: #121e35;
+  --navy-600: #182540;
+  --navy-500: #1e2e4f;
   --navy-400: #2d4170;
   --navy-300: #4a6090;
   --navy-200: #7a93b8;
@@ -615,13 +615,13 @@ h1.hero-headline {
 .card-seisbin .product-card-pattern {
   background:
     radial-gradient(ellipse 70% 50% at 50% 0%, rgba(245, 166, 35, 0.06) 0%, transparent 70%),
-    linear-gradient(180deg, #12180a 0%, #0a0f1c 100%);
+    linear-gradient(180deg, #12180a 0%, #101828 100%);
 }
 .card-seisbin .product-card-pattern::after { display: none; }
 .card-cloud .product-card-pattern {
   background:
     radial-gradient(ellipse 80% 80% at 50% 50%, rgba(0, 212, 170, 0.06) 0%, transparent 70%),
-    linear-gradient(180deg, #081422 0%, #0a0f1c 100%);
+    linear-gradient(180deg, #081422 0%, #101828 100%);
 }
 .card-cloud .product-card-pattern::after { display: none;
 }
